@@ -5,18 +5,42 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {ChartsModule} from "ng2-charts";
+import {AngularFireModule} from "angularfire2";
+import {AF} from "./providers/af";
+import { LoginPageComponent } from './login-page/login-page.component';
+import {Routes, RouterModule} from "@angular/router";
+import { HomePageComponent } from './home-page/home-page.component';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyASr0-MZ3_dRDIYAJb7xhP6yk5frqNVK3s",
+  authDomain: "smart-env-quality-monitor.firebaseapp.com",
+  databaseURL: "https://smart-env-quality-monitor.firebaseio.com",
+  storageBucket: "smart-env-quality-monitor.appspot.com",
+  messagingSenderId: "272210879221"
+};
+
+const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'login', component: LoginPageComponent }
+];
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AF],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

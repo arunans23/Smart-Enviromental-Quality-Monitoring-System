@@ -1,29 +1,16 @@
-<h1>
-  Smart Environment Quality Monitor - Personal Profile - Day chart
-</h1>
-<div class="row">
-  <div class="col-md-6">
-    <div style="display: block;">
-      <canvas baseChart width="150" height="100"
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [options]="lineChartOptions"
-              [colors]="lineChartColors"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Smart Environmental Quality Monitor</a>
+    </div>
+    <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="logout()">Logout</a></li>
+      </ul>
     </div>
   </div>
-  <div class="col-md-6" style="margin-bottom: 10px">
-    <table class="table table-responsive table-condensed">
-      <tr>
-        <th *ngFor="let label of lineChartLabels">{{label}}</th>
-      </tr>
-      <tr *ngFor="let d of lineChartData">
-        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-      </tr>
-    </table>
-    <button (click)="randomize()">CLICK</button>
-  </div>
+</nav>
+
+<div class="app-content">
+  <router-outlet></router-outlet>
 </div>
