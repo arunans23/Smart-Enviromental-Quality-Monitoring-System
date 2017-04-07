@@ -63,4 +63,17 @@ export class HomePageComponent {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+  openFile(event) {
+    let input = event.target;
+    for (var index = 0; index < input.files.length; index++) {
+      let reader = new FileReader();
+      reader.onload = () => {
+        // this 'text' is the content of the file
+        var text = reader.result;
+        console.log(text);
+      }
+      reader.readAsText(input.files[index]);
+    }
+  }
 }
