@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AF} from "../providers/af";
 
 @Component({
   selector: 'app-home-page',
@@ -13,6 +14,8 @@ export class HomePageComponent {
   private currentText :string = "";
   private currentPM25Sum :number = 0;
   private currentPM10Sum :number = 0;
+
+  constructor (public af : AF){}
 
   // lineChart
   public lineChartData:Array<any> = [
@@ -109,5 +112,10 @@ export class HomePageComponent {
       _lineChartData[i] = {data: this.pm25data, label: this.lineChartData[i].label};
     }
     this.lineChartData = _lineChartData;
+  }
+
+  getUser(){
+    this.af.getCurrentUser();
+
   }
 }

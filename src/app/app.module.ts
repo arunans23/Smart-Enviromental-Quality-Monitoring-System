@@ -10,6 +10,7 @@ import {AF} from "./providers/af";
 import { LoginPageComponent } from './login-page/login-page.component';
 import {Routes, RouterModule} from "@angular/router";
 import { HomePageComponent } from './home-page/home-page.component';
+import { HeaderComponent } from './header.component';
 
 
 export const firebaseConfig = {
@@ -30,7 +31,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
