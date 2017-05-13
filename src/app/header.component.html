@@ -1,9 +1,14 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Smart Environmental Quality Monitor</a>
+      <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
     </div>
     <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a [routerLink] = "['/summary']">Summary</a></li>
+        <li routerLinkActive="active"><a [routerLink] = "['/timeline']">Timeline</a></li>
+        <li routerLinkActive="active"><a [routerLink] = "['/addData']">Add Data</a></li>
+      </ul>
       <ul class="nav navbar-nav">
         <li>{{userName}}</li>
       </ul>

@@ -115,7 +115,7 @@ export class HomePageComponent {
   }
 
   getUser(){
-    this.af.getCurrentUser();
+    //this.af.getCurrentUser();
 
   }
 }

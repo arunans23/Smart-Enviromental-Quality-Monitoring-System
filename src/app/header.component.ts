@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';import { Router } from "@angular/router";
 import {AF} from "./providers/af";
+import {Constants} from "./shared/constants";
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,8 @@ import {AF} from "./providers/af";
 })
 export class HeaderComponent {
 
-
-  public isLoggedIn: boolean;
+    private title = Constants.title;
+    public isLoggedIn: boolean;
   constructor(public afService: AF, private router: Router) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
@@ -34,7 +35,7 @@ export class HeaderComponent {
     this.afService.logout();
   }
 
-  userName: string = this.afService.getCurrentUserName();
+  //userName: string = this.afService.userName;
 
 
 

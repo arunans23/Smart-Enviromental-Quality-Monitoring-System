@@ -8,9 +8,15 @@ import {ChartsModule} from "ng2-charts";
 import {AngularFireModule} from "angularfire2";
 import {AF} from "./providers/af";
 import { LoginPageComponent } from './login-page/login-page.component';
-import {Routes, RouterModule} from "@angular/router";
+
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header.component';
+import { SummaryComponent } from './summary/summary.component';
+import { TimelineComponent } from './timeline/timeline.component';
+import { AddDataComponent } from './add-data/add-data.component';
+import {routing} from "./app.routing";
+import {UserService} from "./user.service";
+import {DataService} from "./data.service";
 
 
 export const firebaseConfig = {
@@ -21,10 +27,6 @@ export const firebaseConfig = {
   messagingSenderId: "272210879221"
 };
 
-const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'login', component: LoginPageComponent }
-];
 
 
 @NgModule({
@@ -32,7 +34,10 @@ const routes: Routes = [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    HeaderComponent
+    HeaderComponent,
+    SummaryComponent,
+    TimelineComponent,
+    AddDataComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +45,9 @@ const routes: Routes = [
     HttpModule,
     ChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes)
+    routing
   ],
-  providers: [AF],
+  providers: [AF, UserService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
