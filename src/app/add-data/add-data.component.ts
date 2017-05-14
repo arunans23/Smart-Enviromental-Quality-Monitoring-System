@@ -51,10 +51,12 @@ export class AddDataComponent implements OnInit {
             //console.log(new Entry(date.toString(), lineArray[1], lineArray[2], this.userService.userEmail ));
             this.dataService.addEntry(new Entry(date.toString(), parseFloat(lineArray[1]), parseFloat(lineArray[2]), this.userService.userEmail ));
             console.log("Test");
+            this.dataService.setLastUpdate(date);
           }
         }
         console.log("Test1");
         this.dataService.storeEntries();
+        this.dataService.storeLastUpdate();
       }
       reader.readAsText(input.files[index]);
     }

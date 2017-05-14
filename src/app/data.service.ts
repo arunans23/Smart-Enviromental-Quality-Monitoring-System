@@ -26,9 +26,7 @@ export class DataService {
       'Content-Type': 'application/json'
     });
     //console.log(JSON.stringify(this.entries));
-    return this.http.put('https://smart-env-quality-monitor.firebaseio.com/entries.json', body, {headers: headers}).subscribe(
-        (onerror)=> console.log(onerror)
-    );
+    return this.http.put('https://smart-env-quality-monitor.firebaseio.com/entries.json', body, {headers: headers});
   }
 
   retrieveEntries(){
@@ -61,6 +59,19 @@ export class DataService {
                   this.entriesChanged.emit(this.entries);
               }
           );
+  }
+
+  storeLastUpdate(){
+      const body = this.lastUpdate;
+      const headers = new Headers({
+          'Content-Type': 'application/json'
+      });
+      //console.log(JSON.stringify(this.entries));
+      return this.http.put('https://smart-env-quality-monitor.firebaseio.com/lastUpdate.json', body, {headers: headers});
+  }
+
+  getEntries(){
+      return this.entries;
   }
 
 }
