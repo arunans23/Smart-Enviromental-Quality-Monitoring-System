@@ -60,6 +60,7 @@ export class AddDataComponent implements OnInit, OnChanges {
         console.log("Test1");
         this.dataService.storeEntries();
         this.dataService.storeLastUpdate();
+        console.log("test2");
       }
       reader.readAsText(input.files[index]);
     }
