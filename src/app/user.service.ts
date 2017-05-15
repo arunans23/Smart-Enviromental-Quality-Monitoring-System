@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+import {AF} from "./providers/af";
 
 @Injectable()
 export class UserService {
 
-  public userName = "Arunan Sugunakumar"
-  public userEmail = "arunans.14@cse.mrt.ac.lk"
-  public userImage = "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAgWAAAAJGMxZWM2MzAzLTExNGQtNDU5Ny1iODIzLTRkZDEwZGZjOTMxMg.jpg"
+  public userName;
+  public userEmail;
+  // public userImage = "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAgWAAAAJGMxZWM2MzAzLTExNGQtNDU5Ny1iODIzLTRkZDEwZGZjOTMxMg.jpg";
+  public userImage;
 
-  constructor() { }
+  constructor() {
+  }
 
   // getCurrentUser(){
   //

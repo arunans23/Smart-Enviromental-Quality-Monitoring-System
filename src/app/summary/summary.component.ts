@@ -13,6 +13,8 @@ export class SummaryComponent implements OnInit {
   userEmail: string;
   userImage: string;
 
+  check: string;
+
   constructor(public userService: UserService) {
     this.userName = userService.userName;
     this.userEmail = userService.userEmail;
