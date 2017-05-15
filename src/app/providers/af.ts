@@ -16,11 +16,10 @@ export class AF {
         this.userName = auth.auth.displayName;
         this.userEmail = auth.auth.email;
         this.userImage = auth.auth.photoURL;
-        console.log(this.userName);
+
         userService.userName = this.userName;
         userService.userEmail = this.userEmail;
         userService.userImage = this.userImage;
-        console.log("check");console.log("check");
       }
     })
   }

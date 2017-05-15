@@ -9,11 +9,9 @@
         <li routerLinkActive="active"><a [routerLink] = "['/timeline']">Timeline</a></li>
         <li routerLinkActive="active"><a [routerLink] = "['/addData']">Add Data</a></li>
       </ul>
-      <ul class="nav navbar-nav">
-        <li>{{userName}}</li>
-      </ul>
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a (click)="logout()">Logout</a></li>
+        <li><a (click)="logout()">Log out</a></li>
       </ul>
     </div>
   </div>

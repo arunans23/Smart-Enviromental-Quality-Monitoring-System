@@ -2,6 +2,12 @@
   timeline works!
 </p>
 <div class="container">
+  <ul class="list-group">
+    <li class="list-group-item"*ngFor = "let entry of entries">{{entry.dateTime}} {{entry.pm25}} {{entry.pm10}}</li>
+  </ul>
+</div>
+
+<div class="container">
   <div class="alert alert-success" role="alert">
     <p>Check</p>
   </div>

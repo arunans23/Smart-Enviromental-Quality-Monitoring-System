@@ -10,6 +10,7 @@ export class TimelineComponent implements OnInit {
 
   entries: Entry[] = [];
 
+
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
