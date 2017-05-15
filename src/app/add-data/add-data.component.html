@@ -6,3 +6,12 @@
 <div class="container">
   <button (click) = "checkDate()">Test</button>
 </div>
+
+<br>
+
+<div class="container" *ngIf = "newEntries.length != 0">
+  <div class="alert alert-success" *ngFor = "let newEntry of newEntries">
+    New Data added : {{newEntry.dateTime}}    {{newEntry.pm25}}
+  </div>
+</div>
+<br>

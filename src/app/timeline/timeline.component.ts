@@ -10,11 +10,11 @@ export class TimelineComponent implements OnInit {
 
   entries: Entry[] = [];
 
-
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
     this.entries = this.dataService.getEntries();
   }
+
 
 }

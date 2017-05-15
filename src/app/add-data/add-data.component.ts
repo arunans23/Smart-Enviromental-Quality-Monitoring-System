@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {DataService} from "../data.service";
 import {Entry} from "../shared/entry";
 import {UserService} from "../user.service";
@@ -7,9 +7,11 @@ import {UserService} from "../user.service";
   selector: 'app-add-data',
   templateUrl: './add-data.component.html'
 })
-export class AddDataComponent implements OnInit {
+export class AddDataComponent implements OnInit, OnChanges {
 
   private lastUpdate: Date;
+
+  private newEntries :Entry[] = [];
 
   constructor(public dataService: DataService, public userService: UserService) {
 
@@ -52,6 +54,7 @@ export class AddDataComponent implements OnInit {
             this.dataService.addEntry(new Entry(date.toString(), parseFloat(lineArray[1]), parseFloat(lineArray[2]), this.userService.userEmail ));
             console.log("Test");
             this.dataService.setLastUpdate(date);
+            this.newEntries.push(new Entry(date.toString(), parseFloat(lineArray[1]), parseFloat(lineArray[2]), this.userService.userEmail));
           }
         }
         console.log("Test1");
@@ -65,6 +68,10 @@ export class AddDataComponent implements OnInit {
 
   checkDate(){
     console.log(this.lastUpdate.toString())
+  }
+
+  ngOnChanges(){
+    this.newEntries = [];
   }
 
 }
