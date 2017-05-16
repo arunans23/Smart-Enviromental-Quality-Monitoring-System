@@ -10,6 +10,9 @@ export class DataService {
   //private entries: Entry[] = [new Entry("Tue Jan 10 2016 01:12:12 GMT+0530 (+0530)", parseFloat("10.1"), parseFloat("12.5"), "arunans.14@cse.mrt.ac.lk")];
   private lastUpdate : Date = null;
 
+  public loaded: boolean= false;
+  loadedChanged = new EventEmitter<boolean>();
+
   entriesChanged = new EventEmitter<Entry[]>();
   lastUpdateChanged = new EventEmitter<Date>();
 
@@ -41,6 +44,8 @@ export class DataService {
               this.entries = data;
               console.log(data);
               this.entriesChanged.emit(this.entries);
+              this.loaded = true;
+              this.loadedChanged.emit(this.loaded);
             }
         );
   }

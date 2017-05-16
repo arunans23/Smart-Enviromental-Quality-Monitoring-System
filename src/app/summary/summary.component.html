@@ -28,3 +28,17 @@
     Last Updated : {{lastUpdate}}
   </div>
 </div>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div style="display: block">
+      <canvas baseChart
+              [data]="pm25ChartData"
+              [labels]="pm25ChartLabels"
+              [chartType]="pm25ChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+</div>
