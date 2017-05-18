@@ -42,3 +42,45 @@
   </div>
 
 </div>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div style="display: block">
+      <canvas baseChart
+              [data]="pm25ChartDataLastMonth"
+              [labels]="pm25ChartLabelsLastMonth"
+              [chartType]="pm25ChartTypeLastMonth"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div style="display: block">
+      <canvas baseChart
+              [data]="pm10ChartData"
+              [labels]="pm10ChartLabels"
+              [chartType]="pm10ChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div style="display: block">
+      <canvas baseChart
+              [data]="pm10ChartDataLastMonth"
+              [labels]="pm10ChartLabelsLastMonth"
+              [chartType]="pm10ChartTypeLastMonth"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+
+</div>
