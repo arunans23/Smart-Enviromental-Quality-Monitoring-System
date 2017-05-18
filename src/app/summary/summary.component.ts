@@ -50,8 +50,11 @@ export class SummaryComponent implements OnInit, OnChanges {
     })
   }
 
+
   ngOnInit() {
   }
+
+
 
   public pm25ChartLabels:string[] = ['Good', 'Moderate', 'Unhealthy'];
   // public pm25ChartData:number[] = [12, 45, 10];
@@ -114,8 +117,8 @@ export class SummaryComponent implements OnInit, OnChanges {
 
     for (var i = 0; i < this.entries.length; i++){
       let currentDate : Date = new Date();
-      let lastWeekDate: Date = new Date(currentDate.getUTCSeconds() - 7*24*60*60);
-      if (new Date(this.entries[i].dateTime) > lastWeekDate){
+      let lastWeekDate10: Date = new Date(currentDate.getUTCSeconds() - 7*24*60*60);
+      if (new Date(this.entries[i].dateTime) > lastWeekDate10){
         if (this.entries[i].pm10 <= 50){
           this.lastWeekPM10Entries50.push(this.entries[i].pm10);
           console.log("chart 50");
@@ -133,8 +136,8 @@ export class SummaryComponent implements OnInit, OnChanges {
 
     for (var i = 0; i < this.entries.length; i++){
       let currentDate : Date = new Date();
-      let lastMonthDate: Date = new Date(currentDate.getUTCSeconds() - 7*24*60*60*30);
-      if (new Date(this.entries[i].dateTime) > lastMonthDate){
+      let lastMonthDate10: Date = new Date(currentDate.getUTCSeconds() - 7*24*60*60*30);
+      if (new Date(this.entries[i].dateTime) > lastMonthDate10){
         if (this.entries[i].pm10 <= 50){
           this.lastMonthPM10Entries50.push(this.entries[i].pm10);
           console.log("chart 50");
@@ -151,6 +154,7 @@ export class SummaryComponent implements OnInit, OnChanges {
     this.pm10ChartDataLastMonth = [this.lastMonthPM10Entries50.length, this.lastMonthPM10Entries100.length, this.lastMonthPM10Entries150.length];
   }
 
+
   // events
   public chartClicked(e:any):void {
     console.log(e);
@@ -159,6 +163,8 @@ export class SummaryComponent implements OnInit, OnChanges {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+
 
   ngOnChanges(){
     this.calculateValues();
